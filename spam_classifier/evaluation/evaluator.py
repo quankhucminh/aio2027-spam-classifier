@@ -42,10 +42,10 @@ class Evaluator:
         f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0.0
 
         return {
-            "accuracy": float(accuracy),
-            "precision": float(precision),
-            "recall": float(recall),
-            "f1": float(f1),
+            "accuracy": round(float(accuracy), 4),
+            "precision": round(float(precision), 4),
+            "recall": round(float(recall), 4),
+            "f1": round(float(f1), 4),
             "tp": int(tp),
             "fp": int(fp),
             "fn": int(fn),

@@ -9,7 +9,7 @@ uv sync
 ## Data
 
 Download the
-[Enron-Spam CSV](https://www.kaggle.com/datasets/marcelwiechmann/enron-spam-data/data)
+[Enron-Spam CSV](https://github.com/MWiechmann/enron_spam_data/blob/master/enron_spam_data.zip)
 and save it as `data/raw/enron_spam_data.csv`. Git ignores `data/raw/`.
 The experiments and the Streamlit demo both read this file.
 

@@ -3,7 +3,7 @@ import unittest
 from spam_classifier.dataset.email_message import Email
 from spam_classifier.filters.word_score_filter import WordScoreFilter
 from spam_classifier.preprocessing.preprocessor import Preprocessor
-from worked_example import make_new_email, make_train_emails
+from tests.worked_example import make_new_email, make_train_emails
 
 
 class WordScoreFilterTest(unittest.TestCase):

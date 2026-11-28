@@ -8,10 +8,19 @@ def load_emails(path: str) -> list[Email]:
     df = df.astype(object).where(df.notna(), None)
     # Create Email objects from the DataFrame rows
     emails = [
-        Email(subject=row["Subject"], message=row["Message"], is_spam=row["Spam/Ham"] == "spam", date=row.get("Date") or "")
+        Email(subject=row["Subject"], message=row["Message"], is_spam=row["Spam/Ham"] == "spam", date=row.get("Date") or "", id=row.get("Message ID") or 0)
         for row in df.to_dict("records")
     ]
-    return emails
+
+    # deduplicate emails based on subject and message, keeping the first occurrence
+    seen = set()
+    unique_emails = []
+    for email in emails:
+        identifier = email.get_text()  # Use the combined subject and message as the identifier
+        if identifier not in seen:
+            seen.add(identifier)
+            unique_emails.append(email)
+    return unique_emails
 
 
 def save_emails(emails: list[Email], path: str):

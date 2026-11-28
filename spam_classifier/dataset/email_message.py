@@ -12,6 +12,7 @@ class Email:
     message: str
     is_spam: bool = False
     date: str = ""
+    id: int = 0  # optional, for debugging only
 
     def __post_init__(self):
         self.date = datetime.datetime.strptime(self.date, "%Y-%m-%d") if self.date else None

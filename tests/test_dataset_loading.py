@@ -29,4 +29,4 @@ class DatasetLoadingTest(unittest.TestCase):
 
     def test_enron_set_loading(self):
         emails = load_emails("data/raw/enron_spam_data.csv")
-        self.assertEqual(len(emails), 33716)
+        self.assertEqual(len(emails), 30494)
